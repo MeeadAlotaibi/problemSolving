@@ -24,8 +24,8 @@ Note: no empty arrays will be given.
 ## Prob4.js
 
 Given a mathematical equation that has *,+,-,/, reverse it as follows:
-solve("100*b/y") = "y/b*100"
-solve("a+b-c/d*30") = "30\*d/c-b+a"
+`solve("100*b/y") = "y/b*100"
+solve("a+b-c/d*30") = "30\*d/c-b+a"`
 
 ---
 
@@ -59,7 +59,13 @@ If the range does not contain any prime numbers return null.
 
 ## prop8.js
 
-Write a program to find the following Output ? # ## ### #### ##### ######
+Write a program to find the following Output ? 
+`#
+##
+###
+####
+#####
+######`
 
 ---
 
