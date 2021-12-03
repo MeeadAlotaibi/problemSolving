@@ -1,63 +1,53 @@
-// // Write a program to find the following Output ?
-/*
-       #
-       ##
-       ###
-       ####
-       #####
-       ######
+let list1 = [
+  {
+    firstName: "Gabriel",
+    lastName: "X.",
+    country: "Monaco",
+    continent: "Europe",
+    age: 49,
+    language: "PHP",
+  },
+  {
+    firstName: "Odval",
+    lastName: "F.",
+    country: "Mongolia",
+    continent: "Asia",
+    age: 38,
+    language: "Python",
+  },
+  {
+    firstName: "Emilija",
+    lastName: "S.",
+    country: "Lithuania",
+    continent: "Europe",
+    age: 19,
+    language: "Python",
+  },
+  {
+    firstName: "Sou",
+    lastName: "B.",
+    country: "Japan",
+    continent: "Asia",
+    age: 49,
+    language: "PHP",
+  },
+];
 
-*/
-
-// function Squares() {
-//   let output = "";
-
-//   for (let i = 0; i < 6; i++) {
-//     output = output + "#";
-//     console.log(output);
-//   }
+// function findSenior() {
+//   const oldestDeveloper = list1.filter((item, index) => {
+//     return list1[index].age == 49;
+//   });
+//   return oldestDeveloper;
 // }
-// Squares();
+// console.log(findSenior(list1));
 
-/////////////////////////////////////////////////////////
-
-// let day = new Date().getDay();
-// console.log("The value of day is " + day);
-
-// switch (day) {
-//   case 0:
-//     day = "Sunday";
-//     break;
-//   case 1:
-//     day = "Monday";
-//     break;
-//   case 2:
-//     day = "Tuesday";
-//     break;
-//   case 3:
-//     day = "Wednesday";
-//     break;
-//   case 4:
-//     day = "Thursday";
-//     break;
-//   case 5:
-//     day = "Friday";
-//     break;
-//   case 6:
-//     day = "Saturday";
-// }
-
-// console.log("Today is " + day);
-
-////////////////////////////////////////////////////////////////////
-// function mul() {
-//   for (let x = 1; x <= 6; x++) {
-//     for (let y = 1; y <= 6; y++) {
-//       console.log(x + " * " + x + " = " + x * y);
-//     }
-//     console.log("");
-//   }
-// }
-// mul();
-
-///////////////////////////////////////////////////////////////////////
+function findSenior(list1) {
+   let oldAge =0;
+  list1.map((item, index) => { 
+    if (list1[index].age > oldAge) {
+      oldAge = list1[index].age;
+    }
+  });
+  return list1.filter((i) => i.age === oldAge);
+}
+console.log(findSenior(list1));
