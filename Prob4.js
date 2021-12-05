@@ -1,3 +1,4 @@
+
 function solve(eq) {
   return eq
     .split(/([*\+\-\/])/)

@@ -1,3 +1,4 @@
+
 function isPalindrome(x) {
   const len = x.length;
 
