@@ -7,9 +7,10 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-
 const addOne = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach((item) => array.push(item + 1));
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,7 +22,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach((ele) => array.push(ele + "!"));
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +36,9 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach((ele) => array.push(ele.toUpperCase()));
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,17 +52,22 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+
+  let err = word.toUpperCase() + "!";
+  return err;
 };
 
 const speaker = (words, cb) => {
-  // Solution code here...
+  let array = [];
+  words.forEach((ele) => array.push(cb(ele)));
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named addValues that takes in an array and a value and pushes the value into the array. This function does not need a return statement.
+Write a function named addValues that takes in an array and a value and pushes the value into the array.
+ This function does not need a return statement.
 
 Then, write a function named addNumbers that takes in four arguments:
   - A number to be added to an array
@@ -71,11 +81,15 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+ arr.push(value);
 };
 
 const addNumbers = (num, arr, times, cb) => {
-  // Solution code here...
+for (let i = 0; i < times; i++) {
+  cb(arr, num);
+}
+return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,11 +107,18 @@ The inventory is formatted like this:
   { name: 'blueberries', available: false }
 ]
 
-This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
+This function should use forEach to populate your grocery list based on the store's inventory. 
+If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let array = [];
+  availableItems.forEach((ele) => {
+    if (ele.available == true ) {
+      array.push(ele.name);
+    }
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +136,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach((ele) => {
+    if (ele % 3 == 0 && ele % 5 == 0) {
+      array.push("Fizz Buzz");
+    } else if (ele % 3 == 0) {
+      array.push("Fizz");
+    } else if (ele % 5 == 0) {
+      array.push("Buzz");
+    } else array.push(ele);
+  });
+
+  return array;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
