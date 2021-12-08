@@ -9,7 +9,10 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 ------------------------------------------------------------------------------------------------ */
 
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+ arr.forEach((ele, i) => {
+   arr[i] = Math.pow(ele, 3);
+ });
+ return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,8 +23,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
-};
+return str + " The end.";};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -37,7 +39,7 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
+  arr.push(arr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
