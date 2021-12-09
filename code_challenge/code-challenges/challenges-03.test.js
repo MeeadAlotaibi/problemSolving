@@ -22,7 +22,12 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  // Solution code here...
+
+const array = [];
+arr.forEach((ele) => {
+  array.push(callback(ele));
+});
+return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +39,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  // Solution code here...
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,8 +51,10 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  // Solution code here...
-};
+ arr.sort( (a, b) =>{
+   return a - b;
+ });
+ return arr;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -58,8 +65,10 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
-};
+ arr.sort( (a, b)=>{
+   return a - b;
+ });
+ return arr;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -72,7 +81,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,8 +98,10 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
-};
+arr.sort( (a, b)=> {
+  return a.price - b.price;
+});
+return arr;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -101,7 +112,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+return arr.sort((a, b) => a.localeCompare(b));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +122,7 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => a.length - b.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,8 +134,8 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
-};
+  arr.sort((a, b) => String(a).length - String(b).length);
+ 
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -209,7 +220,8 @@ All the code below will verify that your functions are working to solve the chal
 
 DO NOT CHANGE any of the below code.
 
-Run your tests from the console: jest challenges-03.test.js
+Run your tests from the console: jest 
+
 ------------------------------------------------------------------------------------------------ */
 
 describe("Testing challenge 1", () => {
