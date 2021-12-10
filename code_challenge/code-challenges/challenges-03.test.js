@@ -66,7 +66,7 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
  arr.sort( (a, b)=>{
-   return a - b;
+   return b - a;
  });
  return arr;};
 
@@ -134,9 +134,9 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  arr.sort((a, b) => String(a).length - String(b).length);
- 
-
+ let sorted =  arr.sort((a, b) => String(a).length - String(b).length);
+ return sorted;
+}
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
@@ -156,7 +156,7 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -170,7 +170,17 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+return arr.sort((a, b) => {
+    if (a.lastName > b.lastName) {
+      return 1;
+    } else if (a.lastName == b.lastName) {
+      if (a.firstName == b.firstName) {
+        return a.age - b.age;
+      }
+      return a.firstName > b.firstName ? 1 : -1;
+    }
+    return -1;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -196,7 +206,18 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  const Days = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+    Saturday: 6,
+    Sunday: 7,
+  };
+  return arr.sort((a, b) => {
+    return Days[a.dayOfWeek] - Days[b.dayOfWeek];
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,7 +231,15 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+ return sortMeetingsByDay(arr).sort((a, b) => {
+    if (a.dayOfWeek == b.dayOfWeek) {
+      if (a.start == b.start) {
+        return (a.end - a.start) - (b.end - b.start);
+      }
+      return a.start - b.start;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -220,7 +249,7 @@ All the code below will verify that your functions are working to solve the chal
 
 DO NOT CHANGE any of the below code.
 
-Run your tests from the console: jest 
+Run your tests from the console: jest challenges-03.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
