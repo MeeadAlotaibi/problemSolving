@@ -66,7 +66,7 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
 for (let i = 0; i <= str.length; i++) {
-  result.push(str.slice(i, str.length));
+  result.push(str.slice(i));
 }
 return result;
 
@@ -81,7 +81,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split("");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +89,8 @@ CHALLENGE 6
 
 You are making a grocery list for ingredients needed in the gruffalo crumble recipe, below. Rather than taking the entire recipe, you only want a list of the item names.
 
-Write a function named listFoods that takes in the recipe and returns a new array of the food items without any amount or units. Just the name. For example, '1 cup flour' will return 'flour'.
+Write a function named listFoods that takes in the recipe and returns a new array of the food items without any amount or units. Just the name.
+   For example, '1 cup flour' will return 'flour'.
 
 Use slice for this function, maybe more than once. The Array.indexOf() method may also be helpful.
 
@@ -125,8 +126,16 @@ const gruffaloCrumble = {
 };
 
 const listFoods = (recipe) => {
+
+
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    result[i] = recipe.ingredients[i].slice(
+      recipe.ingredients[i].indexOf(" ", " ")
+    );
+    result[i] = result[i].slice(result[i].indexOf(" ", 2)).slice(1);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,7 +148,10 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+for (let i = 0; i < recipe.ingredients.length; i++) {
+  result[i] = recipe.ingredients[i].split(" ").splice(2).join(" ");
+}
+return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,7 +166,12 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  
+  result = recipe.steps.map((step) => {
+    return step.split(" ")[0];
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -171,17 +188,21 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  const odd = arr.filter((ele) => ele % 2 === 1);
+  return odd;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
-Write a function named removeLastCharacters that takes in a string and a number. The numberOfCharacters argument determines how many characters will be removed from the end of the string. Return the resulting string.
+Write a function named removeLastCharacters that takes in a string and a number.
+The numberOfCharacters argument determines how many characters will be removed from the end of the string.
+Return the resulting string.
 
-If the numberOfCharacters argument is greater than the length of the input string, the function should return an empty string.
-
-If the numberOfCharacters argument input is a negative number, the function should return the input string without any changes.
+If the numberOfCharacters argument is greater than the length of the input string,
+the function should return an empty string.
+If the numberOfCharacters argument input is a negative number,
+the function should return the input string without any changes.
 
 For example:
 removeLastCharacters('Gregor', 2) returns 'Greg'
@@ -190,7 +211,8 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  let removed = str.slice(0, str.length - numberOfCharacters);
+  return removed;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -200,8 +222,16 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 ------------------------------------------------------------------------------------------------ */
 
 const totalSumCSV = (str) => {
+  
   let total = 0;
-  // Solution code here...
+
+  const num  = str.split(",");
+
+  num.map((ele) => {
+    total += Number(ele);
+  });
+  return total;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
