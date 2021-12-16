@@ -5,8 +5,8 @@
 CHALLENGE 1 - Review
 
 Use the characters data below for all of the challenges except challenge 2 and 3.
-
-Write a function named sortByChildren that sorts the characters below by the number of children in each house (fewest to most). If a house has the same number of children, sort alphabetically by house name.
+Write a function named sortByChildren that sorts the characters below by the number of children in each house (fewest to most). 
+If a house has the same number of children, sort alphabetically by house name.
 
 ------------------------------------------------------------------------------------------------ */
 let characters = [
@@ -53,10 +53,15 @@ let characters = [
 		house: 'Snow',
 	},
 ];
-
 const sortByChildren = (charArray) => {
-	// Solution code here...
+  return charArray.sort((a, b) => {
+    if (a.children.length == b.children.length) {
+      return a.house - b.house;
+    }
+    return a.children.length - b.children.length;
+  });
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -78,9 +83,10 @@ const courseInfo = {
 	],
 	finalExam: true,
 };
-
 const getCourseKeys = (obj) => {
-	// Solution code here...
+
+ return Object.keys(obj);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +98,7 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-	// Solution code here...
+  return Object.values(obj).indexOf(value) > -1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,13 +115,20 @@ HR has asked you to change the data to make it easier to print so that it looks 
 [
   'Grace Hopper: 222-303-5938',
   'Ada Lovelace: 222-349-9842',
-  'Alan Turing: 222-853-5933'
+  'Alan Turing: 222-853-5933'       
 ]
 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-	// Solution code here...
+let result = [];
+
+for (const [key, value] of Object.entries(obj)) {
+  result.push(`${key}: ${value}`);
+}
+
+return result;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,8 +139,11 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
 	let houses = [];
-	// Solution code here...
-};
+arr.forEach((obj) => {
+  houses.push(obj.house);
+});
+
+return houses;};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -142,7 +158,14 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-	// Solution code here...
+	for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name == character) {
+      if (arr[i].children.length) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,7 +177,15 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-	// Solution code here...
+	let booleanVal = false;
+  Object.entries(arr).forEach(([key, value]) => {
+    if (value.name == character) {
+      if (value.children.length) {
+        booleanVal = true;
+      }
+    }
+  });
+  return booleanVal; 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +195,14 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-	// Solution code here...
+let size = 0;
+  arr.forEach((ele) => {
+    size = size +  ele.children.length + 1; 
+    if (ele.spouse !== null) {
+      size = size + 1;
+    }
+  });
+  return size;
 };
 
 /* ------------------------------------------------------------------------------------------------
