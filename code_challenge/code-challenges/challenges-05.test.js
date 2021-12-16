@@ -243,7 +243,16 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+
+  let litter = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    if (!litter.includes(str[i])) {
+    res += str[i];
+    }
+  }
+return res;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -257,7 +266,8 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+let array = ["a", "e" , "o" ,"i", "u"]
+
 };
 
 /* ------------------------------------------------------------------------------------------------
