@@ -53,6 +53,8 @@ let characters = [
 		house: 'Snow',
 	},
 ];
+/////////////////////////////////////////
+
 const sortByChildren = (charArray) => {
   return charArray.sort((a, b) => {
     if (a.children.length == b.children.length) {
@@ -99,6 +101,7 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   return Object.values(obj).indexOf(value) > -1;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,8 +129,8 @@ let result = [];
 for (const [key, value] of Object.entries(obj)) {
   result.push(`${key}: ${value}`);
 }
-
 return result;
+
 
 };
 
@@ -217,7 +220,13 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
 	const sizes = [];
-	// Solution code here...
+  arr.forEach((ele) => {
+    const obj = {};
+    obj.house = ele.house;
+    obj.members = ele.children.length + 1;
+    sizes.push(obj);
+  });
+  return sizes;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -240,7 +249,13 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
 	const survivors = [];
-	// Solution code here...
+  arr.forEach((ele) => {
+    const obj = {};
+    obj.house = ele.house;
+    obj.members = ele.children.length + 1;
+    survivors.push(obj);
+  });
+  return survivors;
 };
 
 /* ------------------------------------------------------------------------------------------------
