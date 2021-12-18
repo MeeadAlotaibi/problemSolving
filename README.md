@@ -82,5 +82,5 @@ You will be given a sequence of objects representing data about developers who h
 ----
 ## code_challenge 
 13 files contains code challenges 
-* to run test challenges 
+* to run test challenges write in Terminal
  ``` npm run test code_challenge ```
