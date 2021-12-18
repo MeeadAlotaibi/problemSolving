@@ -25,9 +25,8 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-let array =  starWarsArr.sort((a, b) => b.height - a.height);
-return array;
-
+  let array = starWarsArr.sort((a, b) => b.height - a.height);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,8 +36,9 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-arr.splice(idx, 3);
-return arr;};
+  arr.splice(idx, 3);
+  return arr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -65,11 +65,10 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-for (let i = 0; i <= str.length; i++) {
-  result.push(str.slice(i));
-}
-return result;
-
+  for (let i = 0; i <= str.length; i++) {
+    result.push(str.slice(i));
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,8 +125,6 @@ const gruffaloCrumble = {
 };
 
 const listFoods = (recipe) => {
-
-
   let result = [];
   for (let i = 0; i < recipe.ingredients.length; i++) {
     result[i] = recipe.ingredients[i].slice(
@@ -148,10 +145,10 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-for (let i = 0; i < recipe.ingredients.length; i++) {
-  result[i] = recipe.ingredients[i].split(" ").splice(2).join(" ");
-}
-return result;
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    result[i] = recipe.ingredients[i].split(" ").splice(2).join(" ");
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +163,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  
+
   result = recipe.steps.map((step) => {
     return step.split(" ")[0];
   });
@@ -222,16 +219,14 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 ------------------------------------------------------------------------------------------------ */
 
 const totalSumCSV = (str) => {
-  
   let total = 0;
 
-  const num  = str.split(",");
+  const num = str.split(",");
 
   num.map((ele) => {
     total += Number(ele);
   });
   return total;
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -243,16 +238,14 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-
   let litter = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   let res = "";
   for (let i = 0; i < str.length; i++) {
     if (!litter.includes(str[i])) {
-    res += str[i];
+      res += str[i];
     }
   }
-return res;
-
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -266,19 +259,18 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-let vowels = ["a", "e", "o", "i", "u"];
-let newArr = [];
-let result = [];
-newArr.push(removeVowels(str));
-for (let i = 0; i < str.length; i++) {
-  if (vowels.includes(str[i])) {
-    result.push(str[i]);
+  let vowels = ["a", "e", "o", "i", "u"];
+  let newArr = [];
+  let result = [];
+  newArr.push(removeVowels(str));
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      result.push(str[i]);
+    }
   }
-}
-const sortedResult = result.sort().join("");
-newArr.push(sortedResult);
-return newArr;
-
+  const sortedResult = result.sort().join("");
+  newArr.push(sortedResult);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

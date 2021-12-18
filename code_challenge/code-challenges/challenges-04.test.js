@@ -59,13 +59,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  const regEx = /\b([A-Z])([a-z]+)?\b/gm;
-  let array = [];
-  let x;
-  while ((x = regEx.exec(str)) !== null) {
-    array.push(x[0]);
-  }
-  return array;
+ const regEx = /\b([A-Z])([a-z]+)?\b/gm;
+ let array = [];
+ let x;
+ while ((x = regEx.exec(str)) !== null) {
+   array.push(x[0]);
+ }
+ return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,7 +74,6 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
-
 
   let output = [];
   arr.forEach((item) => {
